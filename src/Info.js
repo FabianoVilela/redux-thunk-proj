@@ -7,12 +7,16 @@ export class Info extends Component {
     this.props.loadData()
   }
   render () {
-    return <span>Info</span>
+    if(this.props.isFetching) {
+      return <span>Loading...</span>
+    }
+    return <span>Info: {this.props.data.origin}</span>
   }
 }
 const mapSateToProps = (state) => {
   return {
-    isFetching: state.isFetching
+    isFetching: state.isFetching,
+    data: state.data
   }
 }
 const mapDispatchToProps = (dispatch) => {
