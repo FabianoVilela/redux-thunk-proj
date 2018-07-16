@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadUA } from './actions'
+import actions from './actions'
 
 export class UserAgent extends Component {
   componentDidMount () {
@@ -25,7 +25,7 @@ const mapSateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadData: () => dispatch(loadUA())
+    loadData: () => dispatch(actions.loadUA())
   }
 }
 export default connect(mapSateToProps, mapDispatchToProps) (UserAgent)
